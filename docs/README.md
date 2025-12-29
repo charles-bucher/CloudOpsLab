@@ -1,44 +1,20 @@
-Documentation 📚
 
-This folder contains supporting documentation for the CloudOpsLab repository. It provides instructions, notes, and guides for all scripts and workflows in the project.
+---
 
-📂 Folder Overview
+## **5️⃣ docs/README.md**
 
-troubleshooting/ – Scripts for diagnosing and resolving AWS/cloud issues.
+```markdown
+# Documentation
 
-automation/ – Scripts to automate repetitive cloud tasks.
+This folder contains documentation for all scripts, folder structure explanations, architecture diagrams, and usage guides.
 
-monitoring/ – Scripts for system health checks, logging, and alerts.
+## Contents
 
-self_healing/ – Scripts that automatically fix detected issues.
+- `architecture.md` – Overview of the repository structure and script workflow.
+- `script_docs/` – Optional folder for individual script documentation.
+- Add additional docs as needed.
 
-📝 How to Use
+## Notes
 
-Read this documentation first – Each folder has its own README.md with instructions for the scripts inside.
-
-Check prerequisites – Some scripts require Python, PowerShell modules, or AWS CLI configured.
-
-Follow usage examples – Run scripts according to the examples provided in each folder’s README.
-
-Add notes or updates – Document any changes, troubleshooting steps, or observations while using scripts.
-
-💡 Best Practices
-
-Keep scripts organized by category.
-
-Document any dependencies or AWS services required.
-
-Update the README in this folder with high-level overviews, tips, or workflow diagrams.
-
-Use version control commits to track changes to scripts and documentation.
-
-📈 Purpose
-
-The docs/ folder serves as a central knowledge hub for CloudOpsLab, making it easier for:
-
-Recruiters and employers to understand your skills.
-
-You and collaborators to maintain and expand the repository efficiently.
-
-Portfolio presentations to showcase professionalism and attention to detail.
-
+- Keep this folder updated whenever new scripts or changes are introduced.
+- Use markdown files for readability and GitHub compatibility.

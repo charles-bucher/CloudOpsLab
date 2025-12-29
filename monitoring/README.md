@@ -1,50 +1,31 @@
-Monitoring 🖥️
 
-This folder contains scripts for monitoring cloud infrastructure, AWS services, and system health. These scripts help detect issues early, track resource usage, and maintain system reliability.
+## **2️⃣ monitoring/README.md**
 
-📂 Folder Contents
-Script Name	Purpose	Notes
-check_ec2_status.ps1	Checks EC2 instance health and status	Requires AWS CLI configured
-s3_bucket_audit.ps1	Monitors S3 buckets for access and storage metrics	Can be scheduled via Task Scheduler
-cloudwatch_alerts.ps1	Retrieves and logs CloudWatch alarms	Demonstrates basic monitoring automation
-resource_usage_report.py	Generates usage reports for CPU, memory, and storage	Python script, requires boto3
+```markdown
+# Monitoring Scripts
 
-(Add more scripts as you create them)
+This folder contains scripts for monitoring AWS resources and CloudOps environments. These scripts help detect performance issues, failures, or anomalies automatically.
 
-⚡ How to Use
+## Scripts
 
-Ensure AWS CLI or other required tools are installed and configured.
+- `monitoring_script_name.py` – Example: Monitors CPU/memory utilization across EC2 instances.
+- Add more scripts as developed.
 
-Open PowerShell or terminal in this folder.
+## How to Run
 
-Run scripts using their respective instructions. Example:
+```bash
+python monitoring_script_name.py
+Dependencies
+Python 3.11+
 
-.\check_ec2_status.ps1
+AWS CLI configured
 
+Relevant Python libraries (e.g., boto3, requests)
 
-Check output logs or console messages for results.
+Notes
+Configure AWS credentials before running.
 
-Update scripts and README with new monitoring checks as needed.
+Ensure monitoring scripts have proper IAM permissions for read access to resources.
 
-💡 Best Practices
-
-Schedule scripts using Task Scheduler or cron jobs for continuous monitoring.
-
-Log output to files for historical tracking.
-
-Include error handling to alert if services are unavailable.
-
-Keep scripts modular so they can be reused across projects.
-
-🎯 Purpose
-
-This folder demonstrates your ability to:
-
-Monitor cloud services effectively
-
-Automate checks and alerts
-
-Diagnose system health issues proactively
-
-Showcase CloudOps and AWS support skills
-
+yaml
+Copy code
