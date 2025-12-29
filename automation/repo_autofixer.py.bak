@@ -5,8 +5,7 @@ from pathlib import Path
 # Required files/folders and README sections
 REQUIRED_FILES = ["LICENSE"]
 REQUIRED_FOLDERS = ["scripts", "docs", "tests"]
-REQUIRED_README_SECTIONS = ["Overview", "Deployment", "Tech Stack",
-"Architecture"]
+REQUIRED_README_SECTIONS = ["Overview", "Deployment", "Tech Stack", "Architecture"]
 
 # Autopep8 options
 AUTOPEP8_FLAGS = ["--in-place", "--aggressive", "--aggressive", "--recursive"]
@@ -15,8 +14,7 @@ def run_autopep8(repo_path):
     """Run autopep8 on a repo to auto-fix lint issues."""
     python_files = [str(p) for p in Path(repo_path).rglob("*.py")]
     if python_files:
-        subprocess.run(["python", "-m", "autopep8"] + AUTOPEP8_FLAGS +
-python_files)
+        subprocess.run(["python", "-m", "autopep8"] + AUTOPEP8_FLAGS + python_files)
 
 def run_flake8(repo_path):
     """Run flake8 and return output."""

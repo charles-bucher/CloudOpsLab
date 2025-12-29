@@ -44,7 +44,8 @@ def scan_readme(repo):
             fixes.append(f"## {section}\n\n_TODO_\n")
 
     if fixes:
-        readme.write_text(content + "\n\n" + "\n".join(fixes), encoding="utf-8")
+        readme.write_text(content + "\n\n" + "\n".join(fixes),
+encoding="utf-8")
 
     score = max(0, 100 - (len(missing) * 10))
     return score, missing, ["Added missing README sections"] if fixes else []

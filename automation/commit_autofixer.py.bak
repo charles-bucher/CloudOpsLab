@@ -4,8 +4,7 @@ import subprocess
 # ===== Config =====
 REQUIRED_FILES = ["LICENSE"]
 REQUIRED_FOLDERS = ["scripts", "docs", "tests"]
-REQUIRED_README_SECTIONS = ["Overview", "Deployment", "Tech Stack",
-"Architecture"]
+REQUIRED_README_SECTIONS = ["Overview", "Deployment", "Tech Stack", "Architecture"]
 
 # ===== Helper Functions =====
 def check_structure(repo_path):
@@ -34,13 +33,11 @@ def scan_secrets(repo_path):
     potential_secrets = []
     for root, _, files in os.walk(repo_path):
         for file in files:
-            if file.endswith((".py", ".yml", ".yaml", ".sh", ".env",
-".gitignore")):
+            if file.endswith((".py", ".yml", ".yaml", ".sh", ".env", ".gitignore")):
                 path = os.path.join(root, file)
                 with open(path, "r", encoding="utf-8", errors="ignore") as f:
                     content = f.read()
-                    if "SECRET" in content or "KEY" in content or "TOKEN" in
-content:
+                    if "SECRET" in content or "KEY" in content or "TOKEN" in content:
                         potential_secrets.append(path)
     return potential_secrets
 

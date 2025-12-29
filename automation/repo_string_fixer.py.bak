@@ -57,8 +57,7 @@ def fix_strings_in_file(file_path: Path):
         original_line = line
 
         # Replace smart quotes
-        line = line.replace("“", '"').replace("”", '"').replace("‘",
-"'").replace("’", "'")
+        line = line.replace("“", '"').replace("”", '"').replace("‘", "'").replace("’", "'")
 
         # Fix unterminated strings (naive but works for simple cases)
         if re.search(r'["\']([^"\']*)$', line.strip()):

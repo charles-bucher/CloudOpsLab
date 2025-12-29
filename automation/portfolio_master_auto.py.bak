@@ -97,8 +97,7 @@ def auto_fix_empty_files(repo_path):
     for root, _, files in os.walk(repo_path):
         for f in files:
             full = os.path.join(root, f)
-            if f.endswith((".py", ".sh", ".ps1")) and os.path.getsize(full) ==
-0:
+            if f.endswith((".py", ".sh", ".ps1")) and os.path.getsize(full) == 0:
                 with open(full, "w") as w:
                     w.write("# Auto-filled placeholder\n")
                 fixes.append(f)

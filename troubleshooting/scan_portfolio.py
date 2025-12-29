@@ -25,7 +25,8 @@ PLACEHOLDER_PATTERNS = [
 ]
 
 def scan_repo(repo_path):
-    repo_info = {"repo": os.path.basename(repo_path), "placeholders": [], "metrics": {}}
+    repo_info = {"repo": os.path.basename(repo_path), "placeholders": [],
+"metrics": {}}
 
     # Metrics
     file_count = 0
@@ -38,14 +39,16 @@ def scan_repo(repo_path):
                 readme_present = True
             file_path = os.path.join(root, file)
             try:
-                with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+                with open(file_path, "r", encoding="utf-8", errors="ignore") as
+f:
                     lines = f.readlines()
                     line_count += len(lines)
                     for i, line in enumerate(lines, 1):
                         for pattern in PLACEHOLDER_PATTERNS:
                             if re.search(pattern, line, re.IGNORECASE):
                                 repo_info["placeholders"].append({
-                                    "file": os.path.relpath(file_path, REPOS_DIR),
+                                    "file": os.path.relpath(file_path,
+REPOS_DIR),
                                     "line": i,
                                     "match": line.strip()
                                 })
@@ -65,13 +68,16 @@ def scan_repo(repo_path):
 
 def print_report(repo_info):
     print(f"{Fore.BLUE}📁 Repository: {repo_info['repo']}{Style.RESET_ALL}")
-    print(f"   Files: {repo_info['metrics']['files']}, Lines: {repo_info['metrics']['lines']}, "
+    print(f"   Files: {repo_info['metrics']['files']}, Lines:
+{repo_info['metrics']['lines']}, "
           f"README: {'✅' if repo_info['metrics']['readme_present'] else '❌'}, "
           f"Beefiness Score: {repo_info['metrics']['beefiness_score']}/100")
     if repo_info["placeholders"]:
-        print(f"   {Fore.RED}⚠️ Placeholders Found: {len(repo_info['placeholders'])}{Style.RESET_ALL}")
+        print(f"   {Fore.RED}⚠️ Placeholders Found:
+{len(repo_info['placeholders'])}{Style.RESET_ALL}")
         for p in repo_info["placeholders"]:
-            print(f"      - {Fore.YELLOW}{p['file']}:{p['line']}{Style.RESET_ALL} → {p['match']}")
+            print(f"      -
+{Fore.YELLOW}{p['file']}:{p['line']}{Style.RESET_ALL} → {p['match']}")
     else:
         print(f"   {Fore.GREEN}✅ No placeholders found{Style.RESET_ALL}")
     print("-" * 80)

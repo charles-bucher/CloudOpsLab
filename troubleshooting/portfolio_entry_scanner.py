@@ -25,11 +25,13 @@ def scan_repo(repo_path):
         for file in files:
             if file.endswith((".py", ".sh", ".md", ".yaml", ".json")):
                 try:
-                    with open(os.path.join(root, file), "r", encoding="utf-8") as f:
+                    with open(os.path.join(root, file), "r", encoding="utf-8")
+as f:
                         content = f.read().lower()
                         cloud_hits += sum(1 for kw in CLOUD_KEYWORDS if kw in content)
                         # Simple documentation check: count TODOs or comments
-                        documentation_quality += content.count("#") + content.count("'''") + content.count('"""')
+                        documentation_quality += content.count("#") +
+content.count("'''") + content.count('"""')
                 except Exception as e:
                     print(f"[WARN] Could not read {file}: {e}")
 
@@ -38,7 +40,8 @@ def scan_repo(repo_path):
     if os.path.exists(readme_path):
         with open(readme_path, "r", encoding="utf-8") as f:
             content = f.read().lower()
-            for section in ["tl;dr", "setup instructions", "usage examples", "contact"]:
+            for section in ["tl;dr", "setup instructions", "usage examples",
+"contact"]:
                 if section in content:
                     readme_sections += 1
 
@@ -58,7 +61,8 @@ def scan_repo(repo_path):
     if cloud_score < 70:
         suggestions.append("Add more AWS/cloud keywords and examples.")
     if readme_score < 75:
-        suggestions.append("Enhance README sections: TL;DR, Setup, Usage, Contact.")
+        suggestions.append("Enhance README sections: TL;DR, Setup, Usage,
+Contact.")
     if doc_score < 50:
         suggestions.append("Add more comments and docstrings to scripts.")
 

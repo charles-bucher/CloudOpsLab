@@ -41,16 +41,14 @@ class CommitMessageAnalyzer:
         if "\n" in message:
             subject, body = message.split("\n", 1)
             if not body.startswith("\n"):
-                report["issues"].append("Missing blank line between subject and
-body.")
+                report["issues"].append("Missing blank line between subject and body.")
                 report["is_valid"] = False
         else:
             subject = message
 
         # Check conventional commit format
         if not self._is_conventional(subject):
-            report["issues"].append("Subject does not follow conventional
-commit format.")
+            report["issues"].append("Subject does not follow conventional commit format.")
             report["is_valid"] = False
 
         # Auto‑fix if enabled
@@ -67,8 +65,7 @@ commit format.")
         """
         Validate conventional commit format: type(scope?): description
         """
-        pattern = r"^(" + "|".join(self.allowed_types) + r")(?:\([\w\-]+\))?:
-.+"
+        pattern = r"^(" + "|".join(self.allowed_types) + r")(?:\([\w\-]+\))?: .+"
         return bool(re.match(pattern, subject))
 
     def suggest_fix(self, message: str) -> str:

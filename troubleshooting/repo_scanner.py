@@ -101,7 +101,8 @@ for repo in sorted(os.listdir(BASE_DIR)):
     # Terminal output
     print(f"{repo}")
     print(f"  Grade: {grade} | Score: {score}")
-    print(f"  Scripts: {script_count} | Terraform: {terraform_present} | Terraform Required: {terraform_required}")
+    print(f"  Scripts: {script_count} | Terraform: {terraform_present} |
+Terraform Required: {terraform_required}")
     if issues:
         for issue in issues:
             print(f"  ⚠ {issue}")
