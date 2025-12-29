@@ -1,48 +1,44 @@
-Self-Healing 🛠️
+---
 
-This folder contains scripts designed for automatic remediation of cloud and system issues. These scripts detect common problems and fix them without manual intervention, showcasing CloudOps automation and problem-solving skills.
+## **2️⃣ self_healing/README.md**
 
-📂 Folder Contents
-Script Name	Purpose	Notes
-auto_restart_ec2.ps1	Detects stopped EC2 instances and restarts them automatically	Requires AWS CLI configured
-s3_fix_permissions.ps1	Checks S3 bucket permissions and corrects misconfigurations	Helps enforce security best practices
-cloudwatch_auto_resolve.ps1	Responds to specific CloudWatch alarms with automated actions	Demonstrates self-healing workflows
-resource_cleanup.py	Automatically removes unused resources to save costs	Python script, uses boto3
+```markdown
+# Self-Healing Scripts
 
-(Add more scripts as you create them)
+This folder contains scripts that automatically detect and remediate common AWS issues. Self-healing scripts reduce downtime and maintain system reliability without manual intervention.
 
-⚡ How to Use
+## Scripts
 
-Ensure AWS CLI or required Python modules are installed.
+- `auto_restart_stopped_instances.py` – Detects stopped EC2 instances and restarts them automatically.
+- `disk_space_cleanup.py` – Monitors disk usage and removes temporary or old files to free space.
+- `failed_service_restarter.py` – Checks services for failures and restarts them.
+- `PortfolioCodeQualityScanner.ps1` – Scans code portfolios for quality metrics (PowerShell).
+- `PortfolioHireabilityScanner.ps1` – Evaluates portfolios for hireability metrics (PowerShell).
+- `guardduty-enable.py` – Enables GuardDuty across AWS accounts.
+- `remediation.py` – Generic auto-remediation framework for AWS issues.
 
-Run scripts with PowerShell or Python in this folder. Example:
+## How to Run
 
-.\auto_restart_ec2.ps1
+```bash
+python auto_restart_stopped_instances.py
+python disk_space_cleanup.py
+python failed_service_restarter.py
+# PowerShell scripts
+pwsh PortfolioCodeQualityScanner.ps1
+pwsh PortfolioHireabilityScanner.ps1
+Dependencies
+Python 3.11+ or PowerShell 7+
 
+AWS CLI configured (aws configure)
 
-Scripts will detect and resolve issues automatically.
+Required Python packages (boto3, requests, etc.)
 
-Check logs for actions taken and results.
+Proper IAM permissions to perform remediation actions
 
-💡 Best Practices
+Notes
+Scripts may take corrective actions automatically; review logs for verification.
 
-Test scripts in a staging environment before production.
+Always test in a non-production environment before running new remediation scripts.
 
-Log all automated actions for auditing purposes.
-
-Combine self-healing scripts with monitoring scripts for proactive CloudOps workflows.
-
-Keep scripts modular and parameterized for reuse.
-
-🎯 Purpose
-
-This folder demonstrates your ability to:
-
-Implement automation and self-healing workflows in cloud environments
-
-Reduce downtime and manual intervention
-
-Show initiative and advanced CloudOps problem-solving skills
-
-Build portfolio-ready scripts for recruiters and employers
-
+yaml
+Copy code

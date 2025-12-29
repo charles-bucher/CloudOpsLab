@@ -1,27 +1,34 @@
-## **4️⃣ troubleshooting/README.md**
+## **3️⃣ troubleshooting/README.md**
 
 ```markdown
 # Troubleshooting Scripts
 
-This folder contains labs and scripts designed to simulate and troubleshoot AWS cloud issues. Useful for training, testing, and incident simulations.
+This folder contains scripts and labs designed to simulate and troubleshoot AWS cloud issues. Useful for learning, testing, and real-world incident scenarios.
 
 ## Scripts
 
-- `troubleshooting_script_name.py` – Example: Simulates EC2 SSH lockouts for hands-on troubleshooting practice.
-- Add additional troubleshooting scripts as developed.
+- `ec2_connectivity_check.py` – Diagnoses EC2 SSH/RDP connectivity problems.
+- `s3_permission_audit.py` – Identifies permission issues in S3 buckets.
+- `rds_connection_debugger.py` – Troubleshoots RDS connectivity errors.
+- Add more scripts as developed.
 
 ## How to Run
 
 ```bash
-python troubleshooting_script_name.py
+python ec2_connectivity_check.py
+python s3_permission_audit.py
+python rds_connection_debugger.py
 Dependencies
 Python 3.11+
 
-AWS CLI configured
+AWS CLI configured (aws configure)
 
-Relevant Python libraries (e.g., boto3)
+Required Python packages (boto3, requests, etc.)
 
 Notes
-Designed for learning and simulation purposes.
+Always test in a sandbox environment to avoid impacting production.
 
-Always test in isolated environments or sandboxes to avoid impacting production resources.
+Designed for learning and practical troubleshooting exercises.
+
+yaml
+Copy code

@@ -1,7 +1,6 @@
-
 ---
 
-## **5️⃣ docs/README.md**
+## **4️⃣ docs/README.md**
 
 ```markdown
 # Documentation
@@ -10,11 +9,12 @@ This folder contains documentation for all scripts, folder structure explanation
 
 ## Contents
 
-- `architecture.md` – Overview of the repository structure and script workflow.
-- `script_docs/` – Optional folder for individual script documentation.
-- Add additional docs as needed.
+- `USAGE.md` – Detailed usage instructions for scripts in the repo.
+- `architecture.md` – Overview of repo structure, script interactions, and workflow.
+- Additional markdown files for individual scripts as needed.
 
 ## Notes
 
-- Keep this folder updated whenever new scripts or changes are introduced.
-- Use markdown files for readability and GitHub compatibility.
+- Keep documentation updated whenever scripts are added or modified.
+- Use clear examples and screenshots where helpful.
+- Markdown files ensure readability and GitHub compatibility.
