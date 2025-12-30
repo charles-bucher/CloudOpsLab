@@ -432,6 +432,28 @@ python incident_response/auto_responder.py --incident-type high-cpu --instance-i
 python incident_response/root_cause_analyzer.py --incident-id INC-2024-001
 ```
 
+## Screenshots
+
+### Portfolio Analysis & Automation Results
+
+**Cloud Portfolio Scan Results**
+![Cloud Portfolio Scan Results](automation/screenshots/cloud_portfolio_scan_results.png)
+*Automated analysis of cloud infrastructure showing resource inventory, compliance status, and optimization opportunities*
+
+**Portfolio Master Auto-Run**
+![Portfolio Master Auto-Run](automation/screenshots/portfolio_master_auto-run1.png)
+*Automated portfolio management execution demonstrating scheduled scans, monitoring, and reporting workflows*
+
+**Repository Auto-Fixer Results**
+![Repository Auto-Fixer Results](automation/screenshots/repo_autofixer_results.png)
+*Automated remediation results showing detected issues, applied fixes, and verification status*
+
+**Safe Auto-Fixer Results**
+![Safe Auto-Fixer Results](automation/screenshots/repo_safe_autofixer_results.png)
+*Safe mode auto-remediation with dry-run analysis and recommendation engine output*
+
+---
+
 ## Skills Demonstrated
 
 This repository showcases practical skills essential for cloud operations roles:
