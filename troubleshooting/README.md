@@ -243,3 +243,23 @@ python portfolio_booster.py
 # 5. Entry-level optimization
 python portfolio_entry_scanner.py
 ```
+
+## TL;DR
+
+_TODO_
+
+## Usage Examples
+
+_TODO_
+
+## Incident Scenarios
+
+_TODO_
+
+## Screenshots
+
+_TODO_
+
+## Contact
+
+_TODO_

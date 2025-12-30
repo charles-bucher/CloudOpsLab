@@ -110,3 +110,27 @@ python alerts.py
 3. **Monitor CloudWatch metrics:** Use these scripts alongside AWS Console for full visibility
 4. **Log analysis:** Review script output regularly for trends and patterns
 5. **Start simple:** Begin with basic health checks, then add complexity as needed
+
+## TL;DR
+
+_TODO_
+
+## Overview
+
+_TODO_
+
+## Usage Examples
+
+_TODO_
+
+## Incident Scenarios
+
+_TODO_
+
+## Screenshots
+
+_TODO_
+
+## Contact
+
+_TODO_

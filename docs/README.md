@@ -18,3 +18,24 @@ This folder contains documentation for all scripts, folder structure explanation
 - Keep documentation updated whenever scripts are added or modified.
 - Use clear examples and screenshots where helpful.
 - Markdown files ensure readability and GitHub compatibility.
+
+
+## TL;DR
+
+_TODO_
+
+## Setup Instructions
+
+_TODO_
+
+## Usage Examples
+
+_TODO_
+
+## Incident Scenarios
+
+_TODO_
+
+## Contact
+
+_TODO_

@@ -188,3 +188,27 @@ python commit_autofixer.py
 4. Test First: Run on test/practice repos before production projects
 5. Document Automation: Note which tools were used in project documentation
 6. Backup Strategy: Keep backups of original files before bulk automation
+
+## TL;DR
+
+_TODO_
+
+## Overview
+
+_TODO_
+
+## Usage Examples
+
+_TODO_
+
+## Incident Scenarios
+
+_TODO_
+
+## Screenshots
+
+_TODO_
+
+## Contact
+
+_TODO_

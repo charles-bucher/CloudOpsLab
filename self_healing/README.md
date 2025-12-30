@@ -102,3 +102,31 @@ pwsh PortfolioHireabilityScanner.ps1
 2. **Review remediation.py:** Understand what actions it takes before enabling
 3. **Use Portfolio Scanners:** Run before applying to jobs to optimize your GitHub presence
 4. **Monitor Results:** Check CloudWatch Logs and script output for remediation actions
+
+## TL;DR
+
+_TODO_
+
+## Overview
+
+_TODO_
+
+## Setup Instructions
+
+_TODO_
+
+## Usage Examples
+
+_TODO_
+
+## Incident Scenarios
+
+_TODO_
+
+## Screenshots
+
+_TODO_
+
+## Contact
+
+_TODO_
