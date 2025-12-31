@@ -23,6 +23,34 @@ CloudOpsLab is a practical collection of cloud operations scripts demonstrating 
 
 ## Architecture
 
+
+CloudOpsLab/
+├── terraform/               ← main Terraform folder
+│   ├── modules/             ← reusable modules
+│   │   ├── cloudwatch/
+│   │   ├── lambda/
+│   │   ├── iam/
+│   │   └── eventbridge/
+│   ├── environments/        ← dev/prod stacks
+│   │   ├── dev/
+│   │   │   ├── main.tf
+│   │   │   ├── terraform.tfvars
+│   │   │   └── backend.tf   ← optional remote state
+│   │   └── prod/
+│   │       ├── main.tf
+│   │       ├── terraform.tfvars
+│   │       └── backend.tf
+│   ├── outputs.tf           ← root outputs
+│   ├── variables.tf         ← root variables
+│   └── README.md            ← explains Terraform folder structure
+├── incidents/               ← incident response examples
+├── monitoring/              ← alarms, EventBridge rules, dashboards
+├── scripts/                 ← deployment/automation scripts
+└── README.md                ← repo-level overview & CloudOps story
+
+
+
+
 ### High-Level System Design
 
 ```

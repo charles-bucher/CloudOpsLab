@@ -1,0 +1,19 @@
+CloudOpsLab/
+├── terraform/               ← main Terraform folder
+│   ├── modules/             ← reusable modules (CloudWatch, Lambda, IAM, EventBridge)
+│   ├── environments/        ← separate dev/prod setups
+│   │   ├── dev/
+│   │   │   ├── main.tf
+│   │   │   ├── terraform.tfvars
+│   │   │   └── backend.tf   ← optional S3/DynamoDB state
+│   │   └── prod/
+│   │       ├── main.tf
+│   │       ├── terraform.tfvars
+│   │       └── backend.tf
+│   ├── outputs.tf
+│   ├── variables.tf
+│   └── README.md            ← explains folder structure
+├── incidents/               ← incident response examples
+├── monitoring/              ← alarms, EventBridge rules, SNS, etc.
+├── scripts/                 ← Makefile, deploy.sh, or other automation
+└── README.md                ← repo-level, CloudOps story
