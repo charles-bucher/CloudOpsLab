@@ -1,0 +1,8 @@
+CloudOpsLab/
+├── terraform/           ← NEW!
+│   ├── modules/
+│   │   ├── cloudwatch/
+│   │   ├── eventbridge/
+│   │   ├── lambda/
+│   │   └── iam/
+│   └── [complete IaC setup]
