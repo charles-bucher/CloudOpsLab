@@ -4,10 +4,12 @@ Repository String Fixer
 Fixes unterminated strings and smart quotes across repositories
 """
 
+# Import required libraries
 import os
 import re
 from pathlib import Path
 import shutil
+
 
 # List of repos and their files with unterminated string issues
 repos_to_fix = {

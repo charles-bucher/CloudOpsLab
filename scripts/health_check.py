@@ -4,9 +4,11 @@ CloudOpsLab Health Check Script
 Performs system health checks on AWS resources
 """
 
+# Import required libraries
 import boto3
 import sys
 from datetime import datetime
+
 
 def check_ec2_health():
     """Check EC2 instance health"""

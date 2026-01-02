@@ -1,5 +1,13 @@
+"""
+Portfolio Entry Scanner
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
+
 
 # Define cloud keywords relevant to entry-level cloud
 CLOUD_KEYWORDS = [
@@ -13,8 +21,11 @@ WEIGHTS = {
     "readme_quality": 0.3,
     "documentation_quality": 0.3
 }
-
 def scan_repo(repo_path):
+    """
+        Function to scan_repo.
+    """
+
     repo_name = os.path.basename(repo_path)
     cloud_hits = 0
     readme_sections = 0
@@ -74,8 +85,11 @@ Contact.")
         "total_score": round(total_score, 1),
         "suggestions": suggestions
     }
-
 def scan_all_repos(base_path):
+    """
+        Function to scan_all_repos.
+    """
+
     results = []
     for repo_name in os.listdir(base_path):
         repo_path = os.path.join(base_path, repo_name)

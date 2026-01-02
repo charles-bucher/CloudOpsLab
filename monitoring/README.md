@@ -134,3 +134,9 @@ _TODO_
 ## Contact
 
 _TODO_
+
+## Skills Demonstrated
+Automation, monitoring, incident response, troubleshooting, and Infrastructure as Code using Terraform/CloudFormation.
+
+## What I Learned
+Hands-on experience troubleshooting AWS incidents, applying automation, monitoring with CloudWatch, and ensuring cloud reliability.

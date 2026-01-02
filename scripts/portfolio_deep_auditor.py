@@ -1,6 +1,14 @@
+"""
+Portfolio Deep Auditor
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
 from pathlib import Path
+
 
 # ================= CONFIG =================
 ROOT_FOLDERS = [
@@ -25,15 +33,21 @@ CLOUD_KEYWORDS = [
 ]
 # ==========================================
 
-
 def safe_read(path):
+    """
+        Function to safe_read.
+    """
+
     try:
         return path.read_text(encoding="utf-8", errors="ignore")
     except Exception:
         return ""
 
-
 def score_readme(readme_text):
+    """
+        Function to score_readme.
+    """
+
     score = 0
     missing = []
 
@@ -45,13 +59,19 @@ def score_readme(readme_text):
 
     return round(score, 1), missing
 
-
 def score_cloud_relevance(text):
+    """
+        Function to score_cloud_relevance.
+    """
+
     hits = sum(1 for kw in CLOUD_KEYWORDS if kw in text.lower())
     return min(100, hits * 12)
 
-
 def documentation_score(repo_path):
+    """
+        Function to documentation_score.
+    """
+
     py_files = list(repo_path.rglob("*.py"))
     if not py_files:
         return 0
@@ -64,8 +84,11 @@ def documentation_score(repo_path):
 
     return round((documented / len(py_files)) * 100, 1)
 
-
 def autofix_readme(readme_path, missing_sections):
+    """
+        Function to autofix_readme.
+    """
+
     if not AUTO_FIX:
         return
 
@@ -74,8 +97,11 @@ def autofix_readme(readme_path, missing_sections):
         for section in missing_sections:
             f.write(f"\n\n## {section}\n_TODO: Describe this section._\n")
 
-
 def ensure_license(repo_path):
+    """
+        Function to ensure_license.
+    """
+
     license_path = repo_path / "LICENSE"
     if license_path.exists():
         return
@@ -83,8 +109,11 @@ def ensure_license(repo_path):
     if AUTO_FIX:
         license_path.write_text("MIT License\n\nCopyright (c)")
 
-
 def analyze_repo(repo_path):
+    """
+        Function to analyze_repo.
+    """
+
     print("=" * 60)
     print(f"Repo: {repo_path.name}")
 
@@ -116,8 +145,11 @@ def analyze_repo(repo_path):
 
     ensure_license(repo_path)
 
-
 def main():
+    """
+        Function to main.
+    """
+
     for root in ROOT_FOLDERS:
         root_path = Path(root)
         if not root_path.exists():

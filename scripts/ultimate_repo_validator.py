@@ -1,7 +1,15 @@
+"""
+Ultimate Repo Validator
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
 import pathlib
 from pathlib import Path
+
 
 # -------------------------------
 # Configuration
@@ -30,24 +38,33 @@ def safe_read_text(file_path: Path) -> str:
     except Exception as e:
         print(f"[WARN] Failed to read {file_path}: {e}")
         return ""
-
 def check_placeholders(file_path: Path):
+    """
+        Function to check_placeholders.
+    """
+
     content = safe_read_text(file_path)
     issues = []
     for pattern in PLACEHOLDER_PATTERNS:
         if re.search(pattern, content):
             issues.append(f"{file_path} contains placeholder: {pattern}")
     return issues
-
 def check_readme(readme_path: Path):
+    """
+        Function to check_readme.
+    """
+
     content = safe_read_text(readme_path)
     missing_sections = []
     for section in REQUIRED_README_SECTIONS:
         if section not in content:
             missing_sections.append(section)
     return missing_sections
-
 def check_code_quality(file_path: Path):
+    """
+        Function to check_code_quality.
+    """
+
     # Very basic checks; can integrate pylint/flake8 later
     content = safe_read_text(file_path)
     issues = []
@@ -56,8 +73,11 @@ def check_code_quality(file_path: Path):
     if "\t" in content:
         issues.append(f"{file_path} contains tabs instead of spaces")
     return issues
-
 def validate_repo(repo_path: Path):
+    """
+        Function to validate_repo.
+    """
+
     report = {
         "missing_readme_sections": [],
         "placeholders": [],
@@ -89,8 +109,11 @@ def validate_repo(repo_path: Path):
 
 # -------------------------------
 # Main
-# -------------------------------
-def main(root_folder: str):
+# -------------------------------def main(root_folder: str):
+    """
+        Function to main.
+    """
+
     root_path = Path(root_folder)
     if not root_path.exists():
         print(f"[ERROR] Folder not found: {root_folder}")

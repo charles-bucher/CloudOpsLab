@@ -1,3 +1,8 @@
+**Role:** Cloud Support & CloudOps Engineer
+**Skills:** AWS (EC2, S3, Lambda, VPC), Python, Terraform, CloudFormation, CloudWatch, IAM, SNS/SQS, CI/CD, Monitoring, Automation, Troubleshooting
+**Portfolio:** https://charles-bucher.github.io
+**GitHub:** https://github.com/charles-bucher
+
 ---
 
 ## **4️⃣ docs/README.md**
@@ -39,3 +44,9 @@ _TODO_
 ## Contact
 
 _TODO_
+
+## Skills Demonstrated
+Automation, monitoring, incident response, troubleshooting, and Infrastructure as Code using Terraform/CloudFormation.
+
+## What I Learned
+Hands-on experience troubleshooting AWS incidents, applying automation, monitoring with CloudWatch, and ensuring cloud reliability.

@@ -4,10 +4,12 @@ Repository Auto-Linter
 Automatically fixes Python code style issues across all repositories
 """
 
+# Import required libraries
 import os
 import subprocess
 import sys
 from pathlib import Path
+
 
 # =============================
 # CONFIG

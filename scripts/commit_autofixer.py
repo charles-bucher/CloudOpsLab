@@ -1,5 +1,13 @@
+"""
+Commit Autofixer
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import subprocess
+
 
 # ===== Config =====
 REQUIRED_FILES = ["LICENSE"]
@@ -7,8 +15,11 @@ REQUIRED_FOLDERS = ["scripts", "docs", "tests"]
 REQUIRED_README_SECTIONS = ["Overview", "Deployment", "Tech Stack",
 "Architecture"]
 
-# ===== Helper Functions =====
-def check_structure(repo_path):
+# ===== Helper Functions =====def check_structure(repo_path):
+    """
+        Function to check_structure.
+    """
+
     missing = []
     for f in REQUIRED_FILES:
         if not os.path.isfile(os.path.join(repo_path, f)):
@@ -17,8 +28,11 @@ def check_structure(repo_path):
         if not os.path.isdir(os.path.join(repo_path, d)):
             missing.append(d)
     return missing
-
 def check_readme(repo_path):
+    """
+        Function to check_readme.
+    """
+
     readme_path = os.path.join(repo_path, "README.md")
     missing_sections = []
     if not os.path.isfile(readme_path):
@@ -29,8 +43,11 @@ def check_readme(repo_path):
             if section not in content:
                 missing_sections.append(section)
     return True, missing_sections
-
 def scan_secrets(repo_path):
+    """
+        Function to scan_secrets.
+    """
+
     potential_secrets = []
     for root, _, files in os.walk(repo_path):
         for file in files:
@@ -43,22 +60,31 @@ def scan_secrets(repo_path):
 content:
                         potential_secrets.append(path)
     return potential_secrets
-
 def run_flake8(repo_path):
+    """
+        Function to run_flake8.
+    """
+
     result = subprocess.run(
         ["python", "-m", "flake8", repo_path],
         capture_output=True,
         text=True
     )
     return result.stdout.strip()
-
 def auto_fix(repo_path):
+    """
+        Function to auto_fix.
+    """
+
     subprocess.run([
         "python", "-m", "autopep8", repo_path, 
         "--in-place", "--recursive", "--max-line-length", "79"
     ])
-
 def update_readme(repo_path, missing_sections):
+    """
+        Function to update_readme.
+    """
+
     readme_path = os.path.join(repo_path, "README.md")
     if not os.path.isfile(readme_path):
         with open(readme_path, "w", encoding="utf-8") as f:
@@ -67,8 +93,11 @@ def update_readme(repo_path, missing_sections):
         for section in missing_sections:
             f.write(f"\n## {section}\n\nPlaceholder content.\n")
 
-# ===== Main Processing =====
-def process_repo(repo_path):
+# ===== Main Processing =====def process_repo(repo_path):
+    """
+        Function to process_repo.
+    """
+
     print(f"\n=== Scanning Repo: {os.path.basename(repo_path)} ===\n")
 
     # Auto-fix Python lint first

@@ -1,6 +1,14 @@
+"""
+Scan Enviroment
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
 import json
+
 
 # Optional: for colored output
 try:
@@ -23,8 +31,11 @@ PLACEHOLDER_PATTERNS = [
     r"aws_access_key_id\s*=\s*['\"].*?['\"]",  # AWS keys hardcoded
     r"aws_secret_access_key\s*=\s*['\"].*?['\"]",
 ]
-
 def scan_repo(repo_path):
+    """
+        Function to scan_repo.
+    """
+
     repo_info = {"repo": os.path.basename(repo_path), "placeholders": [],
 "metrics": {}}
 
@@ -65,8 +76,11 @@ REPOS_DIR),
     }
 
     return repo_info
-
 def print_report(repo_info):
+    """
+        Function to print_report.
+    """
+
     print(f"{Fore.BLUE}📁 Repository: {repo_info['repo']}{Style.RESET_ALL}")
     print(f"   Files: {repo_info['metrics']['files']}, Lines:
 {repo_info['metrics']['lines']}, "
@@ -81,8 +95,11 @@ def print_report(repo_info):
     else:
         print(f"   {Fore.GREEN}✅ No placeholders found{Style.RESET_ALL}")
     print("-" * 80)
-
 def main():
+    """
+        Function to main.
+    """
+
     report = []
     for repo in os.listdir(REPOS_DIR):
         repo_path = os.path.join(REPOS_DIR, repo)

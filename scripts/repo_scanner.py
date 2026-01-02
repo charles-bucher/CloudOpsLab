@@ -1,5 +1,13 @@
+"""
+Repo Scanner
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import json
+
 
 BASE_DIR = os.getcwd()
 OUTPUT_FILE = "repo_scan_report.json"
@@ -16,8 +24,11 @@ TERRAFORM_EXPECTED = {
 }
 
 results = []
-
 def score_repo(has_readme, has_gitignore, script_count, terraform_present, terraform_required):
+    """
+        Function to score_repo.
+    """
+
     score = 50
 
     if has_readme:

@@ -2,8 +2,10 @@
 # Author: Charles Bucher
 # Description: Add description here
 
+# Import required libraries
 import os
 import boto3
+
 
 AWS_722631436033 = os.getenv("AWS_722631436033", "7226-3143-6033")"
 REGION = "us-east-1"

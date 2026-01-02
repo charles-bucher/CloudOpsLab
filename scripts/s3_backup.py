@@ -4,10 +4,12 @@ S3 Backup Script
 Backs up objects from one S3 bucket to another with timestamped versioning
 """
 
+# Import required libraries
 import boto3
 import sys
 from datetime import datetime
 from botocore.exceptions import ClientError
+
 
 # Configuration
 SOURCE_BUCKET = "your-source-bucket"      # Replace with your source bucket name

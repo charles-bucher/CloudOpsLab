@@ -1,6 +1,14 @@
+"""
+Deep Repo Auditor
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
 from pathlib import Path
+
 
 ROOT = Path.cwd()
 
@@ -21,15 +29,21 @@ CLOUD_KEYWORDS = [
 
 CODE_EXTENSIONS = (".py", ".sh", ".ps1")
 
-
 def read_file_safe(path):
+    """
+        Function to read_file_safe.
+    """
+
     try:
         return path.read_text(encoding="utf-8", errors="ignore")
     except:
         return ""
 
-
 def scan_readme(repo):
+    """
+        Function to scan_readme.
+    """
+
     readme = repo / "README.md"
     if not readme.exists():
         return 0, ["Missing README.md"], []
@@ -50,8 +64,11 @@ encoding="utf-8")
     score = max(0, 100 - (len(missing) * 10))
     return score, missing, ["Added missing README sections"] if fixes else []
 
-
 def scan_cloud_relevance(repo):
+    """
+        Function to scan_cloud_relevance.
+    """
+
     text = ""
     for file in repo.rglob("*"):
         if file.is_file():
@@ -64,8 +81,11 @@ def scan_cloud_relevance(repo):
         suggestions.append("Add more AWS/cloud terminology and examples.")
     return score, suggestions
 
-
 def scan_docs(repo):
+    """
+        Function to scan_docs.
+    """
+
     files = [f for f in repo.rglob("*") if f.suffix in CODE_EXTENSIONS]
     if not files:
         return 0, ["No code files found"]
@@ -88,8 +108,11 @@ def scan_docs(repo):
         suggestions.append("Increase docstrings and inline comments.")
     return score, suggestions + fixes
 
-
 def scan_structure(repo):
+    """
+        Function to scan_structure.
+    """
+
     expected = ["README.md", "src", "tests"]
     score = 100
     missing = []
@@ -105,8 +128,11 @@ def scan_structure(repo):
 
     return max(score, 0), suggestions
 
-
 def audit_repo(repo):
+    """
+        Function to audit_repo.
+    """
+
     print(f"\n🔍 Repo: {repo.name}")
 
     readme_score, readme_missing, readme_fixes = scan_readme(repo)
@@ -142,8 +168,11 @@ def audit_repo(repo):
     else:
         print("  ✅ Repo is entry-level ready")
 
-
 def main():
+    """
+        Function to main.
+    """
+
     print("=" * 60)
     print("ENTRY-LEVEL CLOUD PORTFOLIO DEEP AUDITOR")
     print("=" * 60)

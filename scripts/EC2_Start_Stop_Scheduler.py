@@ -4,9 +4,11 @@ EC2 Start/Stop Scheduler
 Automates EC2 instance start/stop operations
 """
 
+# Import required libraries
 import boto3
 import sys
 from botocore.exceptions import ClientError
+
 
 # Configuration
 INSTANCE_IDS = ["i-0123456789abcdef0"]  # Replace with your actual instance IDs

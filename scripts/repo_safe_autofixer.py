@@ -1,29 +1,46 @@
+"""
+Repo Safe Autofixer
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import re
 import textwrap
 import shutil
+
 
 # Root folder containing all repos
 REPO_ROOT = r"C:\Users\buche\docs\Desktop\REPOS"
 
 # Max line length
 MAX_LINE_LEN = 79
-
 def backup_file(filepath):
+    """
+        Function to backup_file.
+    """
+
     backup_path = filepath + ".bak"
     if not os.path.exists(backup_path):
         shutil.copyfile(filepath, backup_path)
         print(f"Backup created: {backup_path}")
-
 def fix_line_length(line):
+    """
+        Function to fix_line_length.
+    """
+
     if len(line) <= MAX_LINE_LEN:
         return [line]
     # Try simple wrap for comments, strings, or print statements
     if line.strip().startswith("#") or '"' in line or "'" in line:
         return textwrap.wrap(line, width=MAX_LINE_LEN)
     return [line]
-
 def fix_file(filepath):
+    """
+        Function to fix_file.
+    """
+
     backup_file(filepath)
 
     with open(filepath, "r", encoding="utf-8") as f:
@@ -58,8 +75,11 @@ def fix_file(filepath):
     with open(filepath, "w", encoding="utf-8") as f:
         f.writelines(fixed_lines)
     print(f"Fixed file: {filepath}")
-
 def scan_and_fix():
+    """
+        Function to scan_and_fix.
+    """
+
     for repo in os.listdir(REPO_ROOT):
         repo_path = os.path.join(REPO_ROOT, repo)
         if not os.path.isdir(repo_path):

@@ -1,6 +1,14 @@
+"""
+Portfolio Master Auto
+Purpose: [AWS automation script]
+Author: Charles Bucher
+"""
+
+# Import required libraries
 import os
 import json
 import re
+
 
 # =============================
 # CONFIG
@@ -35,24 +43,33 @@ REPORT_PATH = os.path.join(REPOS_ROOT, "cloud_portfolio_report.json")
 
 # =============================
 # HELPERS
-# =============================
-def safe_read(path):
+# =============================def safe_read(path):
+    """
+        Function to safe_read.
+    """
+
     try:
         with open(path, "r", encoding="utf-8", errors="ignore") as f:
             return f.read()
     except Exception:
         return ""
 
-
 def detect_repo_type(repo_name):
+    """
+        Function to detect_repo_type.
+    """
+
     if repo_name.endswith(".github.io"):
         return "portfolio-site"
     if repo_name.lower() in {"charles-bucher"}:
         return "profile-repo"
     return "cloud-project"
 
-
 def score_readme(readme_text):
+    """
+        Function to score_readme.
+    """
+
     if not readme_text:
         return 0.0, REQUIRED_README_SECTIONS.copy()
 
@@ -65,16 +82,22 @@ def score_readme(readme_text):
     missing = [s for s in REQUIRED_README_SECTIONS if s not in found]
     return score, missing
 
-
 def score_cloud_relevance(text):
+    """
+        Function to score_cloud_relevance.
+    """
+
     if not text:
         return 0.0
 
     hits = sum(1 for kw in AWS_KEYWORDS if kw in text.lower())
     return round((hits / len(AWS_KEYWORDS)) * 100, 1)
 
-
 def score_documentation(repo_path):
+    """
+        Function to score_documentation.
+    """
+
     total_files = 0
     documented = 0
 
@@ -91,8 +114,11 @@ def score_documentation(repo_path):
 
     return round((documented / total_files) * 100, 1)
 
-
 def auto_fix_empty_files(repo_path):
+    """
+        Function to auto_fix_empty_files.
+    """
+
     fixes = []
     for root, _, files in os.walk(repo_path):
         for f in files:

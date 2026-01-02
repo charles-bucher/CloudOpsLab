@@ -4,9 +4,11 @@ Repository Scanner and Auto-Fixer
 Scans repositories for common issues and auto-fixes them
 """
 
+# Import required libraries
 import os
 import subprocess
 from pathlib import Path
+
 
 # Required files/folders and README sections
 REQUIRED_FILES = ["LICENSE"]
