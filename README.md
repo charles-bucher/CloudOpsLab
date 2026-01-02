@@ -1,120 +1,72 @@
-# Cloudopslab
+﻿# CloudOpsLab
 
-## ☁️ AWS Services Used
+Simulates real-world AWS Cloud Support scenarios to demonstrate troubleshooting, automation, and operational excellence.
 
-- **CloudWatch**: Monitoring, logging, and alerting
-- **DynamoDB**: NoSQL database for scalable data storage
-- **EC2**: Compute instances for hosting applications
-- **IAM**: Identity and access management
-- **Lambda**: Serverless functions for event-driven processing
-- **RDS**: Managed relational database service
-- **S3**: Object storage for data and artifacts
-- **VPC**: Network isolation and security
+## Features
+- Error-driven labs (EC2, S3, Lambda, IAM)
+- IaC templates for automated environment deployment
+- Monitoring & alerting scenarios
+- Emphasis on operational signals & best practices
 
-## 💡 Skills Demonstrated
+![Environment Diagram](docs/screenshots/environment_diagram.png)
 
-- **AWS Service Configuration**: Hands-on experience with core AWS services
-- **Infrastructure as Code**: Automated provisioning and management
-- **Troubleshooting**: Systematic problem diagnosis and resolution
-- **Documentation**: Clear technical writing and process documentation
-- **Monitoring & Logging**: Proactive system observation
-- **Security Best Practices**: IAM policies and least-privilege access
-## 📦 Prerequisites
+---
 
-- AWS Account with appropriate permissions
-- AWS CLI configured (`aws configure`)
-- Python 3.8+ installed
-- boto3 library (`pip install boto3`)
-- Terraform or AWS CloudFormation CLI
+## Project Structure
 
-## 📖 Usage
+| Folder/File | Purpose |
+|-------------|---------|
+| iac/        | Terraform / CloudFormation templates for environment setup |
+| labs/       | Scenario-driven troubleshooting exercises |
+| scripts/    | Automation scripts to replicate/fix errors |
+| docs/       | Supporting diagrams, notes, screenshots |
+| README.md   | You are here 🙂 |
 
-### Running Scripts
+---
 
-```bash
-python3 commit_autofixer.py
-python3 EC2_Start_Stop_Scheduler.py
-python3 portfolio_master_auto.py
-```
+## Scenario Walkthroughs (SysOps Narrative)
 
-### Testing Components
+| Scenario | Problem | Investigation | Solution | Result |
+|----------|---------|---------------|----------|--------|
+| Example Scenario | Problem | Investigation | Solution | Result |
 
-1. Verify AWS connectivity: `aws sts get-caller-identity`
-2. Check resource provisioning in AWS Console
-3. Review CloudWatch logs for any errors
 
-## 🔧 Troubleshooting
+![Scenario Screenshot](docs/screenshots/scenario_example.png)
 
-### Common Issues
+---
 
-**Issue**: AWS credentials not configured
-- **Solution**: Run `aws configure` and enter valid credentials
+## Infrastructure as Code
 
-**Issue**: Permission denied errors
-- **Solution**: Verify IAM user has required permissions
-- Check IAM policy allows actions for services used
+This repo uses Terraform to deploy the lab environment automatically.
 
-**Issue**: EC2 instance not reachable
-- **Solution**: Check security group rules allow inbound traffic
-- Verify instance is in 'running' state
+**Deployment Commands:**
+\\\ash
+terraform init
+terraform apply
+terraform destroy
+\\\
 
-**Issue**: S3 access denied
-- **Solution**: Check bucket policy and IAM permissions
-- Verify bucket exists in correct region
+Screenshot placeholder: ![IaC Deployment](docs/screenshots/iac_deployment.png)
 
-**Issue**: Rate limiting or throttling
-- **Solution**: Implement exponential backoff
-- Check service quotas in AWS Console
+---
 
-## 📁 Project Structure
+## Monitoring & Operational Signals
 
-```
-CloudOpsLab/
-├── README.md
-├── infrastructure/
-│   ├── main.tf or template.yaml
-│   └── variables.tf
-├── scripts/
-│   ├── commit_autofixer.py
-│   ├── EC2_Start_Stop_Scheduler.py
-│   └── portfolio_master_auto.py
-├── monitoring/
-│   └── cloudwatch_config.yaml
-└── docs/
-    └── architecture.md
-```
+Example workflow:
 
-## 📊 Monitoring & Logging
+- Alert: Lambda function failed
+- Investigation: Checked CloudWatch logs
+- Action: Updated IAM role & redeployed
+- Outcome: Function passed all tests
 
-This project includes monitoring capabilities:
+Screenshot placeholder: ![Monitoring](docs/screenshots/monitoring_example.png)
 
-- **CloudWatch Metrics**: Track resource utilization
-- **CloudWatch Alarms**: Alert on threshold breaches
-- **CloudWatch Logs**: Centralized application logging
+---
 
-### Setting Up Monitoring
+## Skills Demonstrated
 
-```bash
-# Create CloudWatch alarm
-aws cloudwatch put-metric-alarm \
-  --alarm-name HighCPU \
-  --alarm-description 'Alert when CPU exceeds 80%' \
-  --metric-name CPUUtilization \
-  --threshold 80
-```
-
-## 🔮 Future Enhancements
-
-- Implement CI/CD pipeline with AWS CodePipeline
-- Add automated testing and validation
-- Expand to multi-region deployment
-## 👤 Author
-
-**Charles Bucher**
-- GitHub: [@Charles-Bucher](https://github.com/Charles-Bucher)
-- LinkedIn: [Charles Bucher](https://linkedin.com/in/charles-bucher-cloud)
-- Transitioning to Cloud/DevOps | AWS Focused
-
-## 📄 License
-
-This project is open source and available for educational purposes.
+- AWS Core Services: EC2, S3, IAM, Lambda
+- IaC: Terraform / CloudFormation
+- Monitoring & Troubleshooting: CloudWatch, Alarms, Logs
+- Automation & Remediation Scripts
+- Operational Excellence: Ticketing mindset, error-driven labs
