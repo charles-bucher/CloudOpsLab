@@ -55,16 +55,16 @@ This is my **CloudOps practice environment** where I'm learning operational exce
 ### 1. **Automation** 📡
 Python scripts for AWS operations automation, monitoring setup, and remediation workflows.
 
-### 2. **Monitoring** 🛡️
+### 2. **Monitoring** 🛡�
 Security auditing, GuardDuty integration, and compliance checking scripts.
 
 ### 3. **Self-Healing** 🔄
 Automated recovery mechanisms for common infrastructure issues.
 
-### 4. **Troubleshooting** 🔍
+### 4. **Troubleshooting** �
 Real-world problem scenarios with investigation and resolution workflows.
 
-### 5. **Infrastructure as Code** 🏗️
+### 5. **Infrastructure as Code** ��
 Terraform templates for deploying practice environments.
 
 ---
@@ -191,7 +191,7 @@ Terraform templates for deploying practice environments.
 
 ---
 
-## 🛡️ Monitoring & Security
+## 🛡� Monitoring & Security
 
 ### GuardDuty Security Monitoring
 
@@ -228,11 +228,11 @@ Terraform templates for deploying practice environments.
 - Tracked remediation status
 
 **Common Issues Found:**
-- ❌ Overly permissive Security Groups (0.0.0.0/0)
-- ❌ IAM users without MFA
-- ❌ S3 buckets with public access
-- ❌ Root account usage
-- ❌ Unused access keys
+- � Overly permissive Security Groups (0.0.0.0/0)
+- � IAM users without MFA
+- � S3 buckets with public access
+- � Root account usage
+- � Unused access keys
 
 **Skills Practiced:**
 - Security auditing
@@ -299,7 +299,7 @@ Building infrastructure that can **automatically detect and remediate issues** w
 **Self-Healing Scenarios I've Implemented:**
 
 ```
-┌─────────────┐      ┌──────────────┐      ┌─────────────┐      ┌──────────────┐
+┌─────────────�      ┌──────────────�      ┌─────────────�      ┌──────────────�
 │   Issue     │─────▶│   Detection  │─────▶│ Automated   │─────▶│  Validation  │
 │  Occurs     │      │  (Alarm)     │      │ Remediation │      │  (Testing)   │
 └─────────────┘      └──────────────┘      └─────────────┘      └──────────────┘
@@ -337,7 +337,7 @@ Building infrastructure that can **automatically detect and remediate issues** w
 
 ---
 
-## 🔍 Troubleshooting Scenarios
+## � Troubleshooting Scenarios
 
 ### Real Problems I Created and Solved
 
@@ -483,7 +483,7 @@ python ec2_auto_recovery.py --validate
 
 ---
 
-## 📁 Project Structure
+## � Project Structure
 
 ```
 CloudOpsLab/
@@ -542,7 +542,7 @@ CloudOpsLab/
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠� Technologies Used
 
 <div align="center">
 
@@ -614,15 +614,15 @@ CloudOpsLab/
 
 ---
 
-## 🤝 Contributing
+## � Contributing
 
 This is a personal learning project, but I'm open to suggestions and improvements!
 
 **Ways to Help:**
-- 🐛 Report issues or bugs
+- � Report issues or bugs
 - 💡 Suggest new scenarios
-- 📝 Improve documentation
-- ⭐ Star the repo if you find it useful
+- � Improve documentation
+- � Star the repo if you find it useful
 
 ---
 
@@ -644,7 +644,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+## � Acknowledgments
 
 **Learning Resources:**
 - AWS Documentation
@@ -661,7 +661,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**⭐ If this repo helped you learn CloudOps, please give it a star!**
+**� If this repo helped you learn CloudOps, please give it a star!**
 
 *Built with ☕, Python, and a lot of trial and error*
 
@@ -670,3 +670,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=charles-bucher.CloudOpsLab)
 
 </div>
+## Description
+Write a short description of the project here.
+
+## Scenario Walkthrough
+Step-by-step lab walkthrough here.
+
+# Project Title
+
+## Usage
+Instructions here...
+
+![Diagram](diagram.png)
+
+## Skills Demonstrated
+List skills here...
+
+## Infrastructure as Code
+Terraform/CloudFormation usage...
+
+## Monitoring / Operational Signals
+Include logs/metrics...
