@@ -1,212 +1,191 @@
 # CloudOpsLab 🔧
 
-<div align="center">
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-[![AWS](https://img.shields.io/badge/AWS-CloudOps-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
-[![Python](https://img.shields.io/badge/Python-Automation-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)](https://www.terraform.io/)
-[![Boto3](https://img.shields.io/badge/Boto3-AWS_SDK-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://boto3.amazonaws.com/)
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
+![Open to Work](https://img.shields.io/badge/Open%20To%20Work-00C853?style=flat-square)
 
-**Hands-on AWS CloudOps practice lab demonstrating automation, monitoring, and self-healing**
+**Hands-on AWS CloudOps practice lab demonstrating automation, monitoring, and troubleshooting**
 
-*Learning operational excellence through real-world scenarios*
-
-</div>
+*Self-taught cloud engineer learning operational excellence through real-world scenarios*
 
 ---
 
 ## 🎯 About This Lab
 
-This is my **CloudOps practice environment** where I'm learning operational excellence by building automation, monitoring, and self-healing solutions for AWS infrastructure.
+This is my personal CloudOps learning environment where I'm teaching myself AWS operations by **actually doing the work**—not just following tutorials.
 
-**What This Repo Shows:**
-- ✅ Automated monitoring and alerting with CloudWatch
-- ✅ Self-healing infrastructure for EC2 instances
-- ✅ Security auditing with GuardDuty and custom scripts
-- ✅ Python automation using Boto3
-- ✅ Cost optimization and resource tracking
-- ✅ Operational troubleshooting workflows
+### What Makes This Different:
 
-**Target Skills:**
-- AWS CloudOps best practices
-- Infrastructure automation
-- Monitoring and alerting
-- Incident response
-- Security compliance
+✅ **Real AWS account** - I'm spending ~$20/month from my delivery job to run this  
+✅ **Real problems** - I break things on purpose, then learn to fix them  
+✅ **Real solutions** - Python and Bash scripts I actually wrote and tested  
+✅ **Real documentation** - Everything is documented like production systems  
+
+### My Goal:
+
+Break into cloud operations by proving I can **do the work**, even though I'm entry-level.
 
 ---
 
-## 📋 Table of Contents
+## 🧪 What I've Built
 
-- [Lab Components](#lab-components)
-- [Automation Projects](#automation-projects)
-- [Monitoring & Security](#monitoring--security)
-- [Self-Healing Infrastructure](#self-healing-infrastructure)
-- [Troubleshooting Scenarios](#troubleshooting-scenarios)
-- [Skills Demonstrated](#skills-demonstrated)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
+### 1. CloudWatch Monitoring & Alerting 📊
 
----
+**What I learned:** How to set up automated monitoring that actually catches issues
 
-## 🧪 Lab Components
+![CloudWatch Alarm](docs/screenshots/cloudwatch-alarm-triggered.png)
+*CloudWatch alarm I configured - it actually triggered when my test EC2 hit 80% CPU*
 
-### 1. **Automation** 📡
-Python scripts for AWS operations automation, monitoring setup, and remediation workflows.
+**Skills practiced:**
+- Creating CloudWatch alarms with proper thresholds
+- Setting up SNS topics for notifications
+- Configuring email alerts
+- Testing alarm logic
 
-### 2. **Monitoring** 🛡�
-Security auditing, GuardDuty integration, and compliance checking scripts.
-
-### 3. **Self-Healing** 🔄
-Automated recovery mechanisms for common infrastructure issues.
-
-### 4. **Troubleshooting** �
-Real-world problem scenarios with investigation and resolution workflows.
-
-### 5. **Infrastructure as Code** ��
-Terraform templates for deploying practice environments.
+**Code:** [`scripts/cloudwatch_alarms.py`](scripts/cloudwatch_alarms.py)
 
 ---
 
-## 🤖 Automation Projects
+### 2. EC2 Auto-Recovery 🔄
 
-### CloudWatch Alarms & SNS Notifications
+**What I learned:** How to make instances self-heal from failures
 
-**What I Built:** Automated monitoring system that detects issues and sends alerts
+![EC2 Auto-Recovery](docs/screenshots/ec2-auto-recovery-test.png)
+*Testing auto-recovery by simulating an instance failure*
 
-![CloudWatch Alarm](automation/screenshots/CloudWatch%20alarm%20firing%20or%20SNS%20notification.png)
-*CloudWatch alarm triggering SNS notification for automated alerting*
+**The scenario:**
+1. Configured CloudWatch alarm to detect status check failures
+2. Set up automatic recovery action
+3. Intentionally broke my test instance
+4. Watched it recover automatically
+5. Documented the whole process
 
-**Scenario:**
-- Created custom CloudWatch alarms for CPU, memory, disk usage
-- Configured SNS topics for email/SMS notifications
-- Tested alarm thresholds and notification delivery
+**Result:** Instance recovered in ~4 minutes without any manual intervention
 
-**Skills Practiced:**
-- CloudWatch alarm configuration
-- SNS topic management
-- Monitoring threshold tuning
-- Alert routing and escalation
-
-**Code:** [`automation/cloudwatch_alarms.py`](automation/)
-
----
-
-### EC2 Auto-Recovery
-
-**What I Learned:** How to implement self-healing for EC2 instance failures
-
-![EC2 Auto-Recovery Error](automation/screenshots/ec2-auto-recovery-error.png)
-*Testing EC2 auto-recovery by simulating instance failure*
-
-**Scenario:**
-- Configured CloudWatch alarms to detect instance status check failures
-- Set up automated recovery actions
-- Tested recovery by simulating system/instance failures
-- Monitored recovery time and success rate
-
-**Result:** Instances automatically recover from hardware failures without manual intervention
-
-**Skills Practiced:**
-- EC2 status checks (system, instance)
+**Skills practiced:**
+- EC2 status checks (system vs instance)
 - CloudWatch alarm actions
 - Auto-recovery configuration
-- High availability planning
+- Incident response timing
 
-**Code:** [`automation/ec2_auto_recovery.py`](automation/)
+**Code:** [`scripts/ec2_auto_recovery.py`](scripts/ec2_auto_recovery.py)
 
 ---
 
-### EC2 Start/Stop Automation
+### 3. EC2 Cost Optimization 💰
 
-**What I Built:** Automated EC2 scheduling to reduce costs
+**What I learned:** How to automate EC2 scheduling to save money
 
-![EC2 Start/Stop Auth](automation/screenshots/ec2-start-stop-auth-failure.png)
-*Troubleshooting IAM permissions for EC2 automation (and fixing them!)*
+![EC2 Scheduler](automation/screenshots/ec2-scheduler-iam-fix.png)
+*Troubleshooting IAM permissions (common real-world problem!)*
 
-**Scenario:**
-- Created Lambda function to start/stop EC2 on schedule
-- Hit IAM permission issues (common in real ops!)
-- Debugged and fixed IAM policy
-- Tested scheduling logic with different time zones
+**The problem:**
+- My Lambda function kept failing with `AccessDenied`
+- Had to debug IAM policies
+- Fixed permissions
+- Learned that IAM troubleshooting is a critical CloudOps skill
 
-**Learning:** IAM troubleshooting is a critical CloudOps skill
-
-**Skills Practiced:**
+**Skills practiced:**
 - Lambda function development
 - IAM policy debugging
 - CloudWatch Events/EventBridge
 - Cost optimization strategies
 
-**Code:** [`automation/ec2_scheduler.py`](automation/)
+**Code:** [`scripts/ec2_scheduler.py`](scripts/ec2_scheduler.py)
 
 ---
 
-### EC2 Instance Management with Boto3
+### 4. EC2 Management with Boto3 🐍
 
-**What I Learned:** Using AWS SDK to programmatically manage infrastructure
+**What I learned:** Using Python to programmatically manage AWS infrastructure
 
-![EC2 Client List](automation/screenshots/ec2_client_list_instances.png)
-*Python script using Boto3 to list and manage EC2 instances*
+![EC2 Manager](automation/screenshots/ec2-boto3-client-list.png)
+*My Python script listing and managing EC2 instances*
 
-**Scenario:**
-- Built Python scripts to list, start, stop, and monitor instances
-- Implemented filtering by tags and instance state
-- Created bulk operations for multiple instances
-- Added error handling for API rate limits
+**What it does:**
+- List all EC2 instances
+- Filter by tags and state
+- Start/stop instances in bulk
+- Handle API rate limits gracefully
 
-**Skills Practiced:**
-- Boto3 SDK usage
-- Python automation
+**Skills practiced:**
+- Boto3 SDK for Python
 - AWS API interaction
-- Pagination and filtering
+- Error handling
+- Pagination for large result sets
 
-**Code:** [`automation/ec2_manager.py`](automation/)
+**Code:** [`scripts/ec2_manager.py`](scripts/ec2_manager.py)
 
 ---
 
-### S3 Public Access Detection & Remediation
+### 5. S3 Security Auditing 🔒
 
-**What I Built:** Automated security check for public S3 buckets
+**What I learned:** How to detect and fix security misconfigurations
 
-![S3 Public Access Error](automation/screenshots/s3-public-access-error.png)
-*Script detecting and remediating publicly accessible S3 buckets*
+![S3 Public Check](automation/screenshots/s3-public-access-detection.png)
+*Script detecting publicly accessible S3 buckets*
 
-**Scenario:**
-- Scanned all S3 buckets for public access
-- Identified misconfigured bucket policies
-- Automated remediation to block public access
-- Generated audit reports
+**The scenario:**
+1. Scan all S3 buckets for public access
+2. Identify misconfigured bucket policies
+3. Automatically remediate (block public access)
+4. Generate audit report
 
 **Result:** Prevented potential data exposure through automated compliance checks
 
-**Skills Practiced:**
+**Skills practiced:**
 - S3 security best practices
 - Boto3 S3 operations
 - Policy analysis
 - Security automation
 
-**Code:** [`automation/s3_public_check.py`](automation/)
+**Code:** [`scripts/s3_public_check.py`](scripts/s3_public_check.py)
 
 ---
 
-## 🛡� Monitoring & Security
+### 6. Security Auditing 🛡️
 
-### GuardDuty Security Monitoring
+**What I learned:** How to audit AWS accounts for security issues
 
-**What I Learned:** How to use GuardDuty for threat detection
+![Security Audit](monitoring/screenshots/security-audit-findings.png)
+*Security audit script showing compliance findings*
 
-![GuardDuty Enabled](monitoring/screenshots/GuardDuty%20enabled%20in%20AWS%20console.png)
-*GuardDuty enabled and actively monitoring for security threats*
+**What it checks:**
+- ✅ IAM users without MFA
+- ✅ Overly permissive Security Groups (0.0.0.0/0)
+- ✅ S3 buckets with public access
+- ✅ Root account usage
+- ✅ Unused access keys
+
+**Skills practiced:**
+- Security auditing methodology
+- Compliance frameworks (CIS, AWS Well-Architected)
+- Python reporting
+- Remediation tracking
+
+**Code:** [`monitoring/security_audit.py`](monitoring/security_audit.py)
+
+---
+
+### 7. GuardDuty Threat Monitoring 🚨
+
+**What I learned:** How to use GuardDuty for threat detection
+
+![GuardDuty](monitoring/screenshots/guardduty-enabled.png)
+*GuardDuty actively monitoring my AWS account*
 
 **Setup:**
-- Enabled GuardDuty across AWS account
-- Configured finding severity levels
-- Set up automated alerts for critical findings
-- Practiced incident response for detected threats
+- Enabled GuardDuty across account
+- Configured severity levels
+- Set up automated alerts
+- Practiced incident response
 
-**Skills Practiced:**
+**Skills practiced:**
 - Threat detection setup
 - Security monitoring
 - Finding analysis
@@ -214,192 +193,124 @@ Terraform templates for deploying practice environments.
 
 ---
 
-### Security Audit & Compliance Checking
+### 8. CloudHealth Monitoring 📈
 
-**What I Built:** Automated security audit reports
+**What I learned:** Building infrastructure health checks
 
-![Audit Findings](monitoring/screenshots/audit%20findings%20output.png)
-*Security audit script output showing compliance findings*
-
-**Scenario:**
-- Created Python script to audit IAM, S3, EC2, VPC configurations
-- Checked for common security misconfigurations
-- Generated detailed compliance reports
-- Tracked remediation status
-
-**Common Issues Found:**
-- � Overly permissive Security Groups (0.0.0.0/0)
-- � IAM users without MFA
-- � S3 buckets with public access
-- � Root account usage
-- � Unused access keys
-
-**Skills Practiced:**
-- Security auditing
-- Compliance frameworks (CIS, AWS Well-Architected)
-- Python reporting
-- Remediation tracking
-
-**Code:** [`monitoring/security_audit.py`](monitoring/)
-
----
-
-### Issues Detection Summary
-
-**What I Learned:** How to aggregate and prioritize security findings
-
-![Issues Summary](monitoring/screenshots/issues%20detected%20summary.png)
-*Dashboard showing detected security issues by severity*
-
-**Features:**
-- Severity categorization (Critical, High, Medium, Low)
-- Issue type classification
-- Remediation priority queue
-- Historical tracking
-
-**Skills Practiced:**
-- Log aggregation
-- Issue prioritization
-- Dashboard creation
-- Metrics visualization
-
-**Code:** [`monitoring/issue_tracker.py`](monitoring/)
-
----
-
-### Cloud Health Monitoring
-
-**What I Built:** Infrastructure health check system
-
-![Cloud Health Error](monitoring/screenshots/cloud-health-error.png)
+![Health Check](monitoring/screenshots/cloud-health-monitoring.png)
 *Health monitoring script detecting infrastructure issues*
 
-**Scenario:**
-- Monitored service status across multiple AWS services
-- Checked instance health, disk usage, memory
-- Detected application errors from logs
-- Automated health check reports
+**What it monitors:**
+- Instance health status
+- Disk usage
+- Memory utilization
+- Application errors from logs
 
-**Skills Practiced:**
+**Skills practiced:**
 - Multi-service monitoring
 - Health check automation
 - Log analysis
-- Alert threshold configuration
+- Alert threshold tuning
 
-**Code:** [`monitoring/health_check.py`](monitoring/)
+**Code:** [`monitoring/health_check.py`](monitoring/health_check.py)
 
 ---
 
 ## 🔄 Self-Healing Infrastructure
 
-### What I'm Learning
+**Concept:** Infrastructure that fixes itself automatically
 
-Building infrastructure that can **automatically detect and remediate issues** without human intervention.
-
-**Self-Healing Scenarios I've Implemented:**
+**My learning process:**
 
 ```
-┌─────────────�      ┌──────────────�      ┌─────────────�      ┌──────────────�
-│   Issue     │─────▶│   Detection  │─────▶│ Automated   │─────▶│  Validation  │
-│  Occurs     │      │  (Alarm)     │      │ Remediation │      │  (Testing)   │
-└─────────────┘      └──────────────┘      └─────────────┘      └──────────────┘
+Issue Occurs → Detection (Alarm) → Automated Remediation → Validation (Testing)
 ```
 
-**Examples:**
+### Real Examples I've Implemented:
 
-1. **EC2 Instance Failure**
-   - Detection: CloudWatch status check fails
-   - Action: Automatic instance recovery
-   - Result: 99.9% uptime maintained
+**1. EC2 Instance Failure**
+- **Detection:** CloudWatch status check fails
+- **Action:** Automatic instance recovery
+- **Result:** 99.9% uptime maintained
 
-2. **High CPU Usage**
-   - Detection: CloudWatch alarm triggers at 80% CPU
-   - Action: SNS alert to on-call engineer
-   - Result: Issue investigated before outage
+**2. High CPU Usage**
+- **Detection:** CloudWatch alarm at 80% CPU
+- **Action:** SNS alert to me
+- **Result:** I can investigate before outage
 
-3. **S3 Bucket Made Public**
-   - Detection: Config rule detects policy change
-   - Action: Lambda auto-remediates to private
-   - Result: Data exposure prevented
+**3. S3 Bucket Made Public**
+- **Detection:** Script finds public bucket
+- **Action:** Lambda auto-remediates to private
+- **Result:** Data exposure prevented
 
-4. **Unused Resources**
-   - Detection: Script finds idle EC2 instances
-   - Action: Tag for review or auto-terminate
-   - Result: Cost savings achieved
-
-**Skills Practiced:**
-- Event-driven architecture
-- Lambda for automation
-- CloudWatch alarm actions
-- Error recovery patterns
+**4. Idle Resources**
+- **Detection:** Script finds unused EC2 instances
+- **Action:** Tag for review
+- **Result:** Cost savings
 
 **Code:** [`self_healing/`](self_healing/)
 
 ---
 
-## � Troubleshooting Scenarios
+## 🔍 Troubleshooting I've Done
 
-### Real Problems I Created and Solved
+**Real problems I created and solved** (learning by breaking things)
 
-Each scenario follows operational best practices:
+### Problem → Investigation → Solution → Prevention
 
-```
-Problem → Investigation → Root Cause → Solution → Prevention
-```
+#### 1. IAM Permission Denied
+**Problem:** My automation script kept failing with `AccessDenied`  
+**Investigation:** Reviewed IAM policies and CloudTrail logs  
+**Solution:** Added missing S3 permissions to role  
+**Learning:** Always check CloudTrail for the exact denied action
 
-**Scenario Examples:**
+#### 2. Lambda Timeout
+**Problem:** EC2 start/stop Lambda timing out  
+**Investigation:** Analyzed CloudWatch Logs  
+**Solution:** Increased timeout and optimized code  
+**Learning:** Lambda has hard limits, design accordingly
 
-1. **IAM Permission Denied**
-   - Problem: Automation script fails with AccessDenied
-   - Investigation: Reviewed IAM policies and CloudTrail logs
-   - Solution: Added missing S3 permissions to role
-   - Learning: Always check CloudTrail for exact denied action
+#### 3. CloudWatch Alarm Not Firing
+**Problem:** No alerts received for known issue  
+**Investigation:** Checked alarm configuration and SNS  
+**Solution:** Fixed alarm metric query and SNS subscription  
+**Learning:** Test your monitoring before you need it
 
-2. **Lambda Timeout in Automation**
-   - Problem: EC2 start/stop Lambda timing out
-   - Investigation: Analyzed CloudWatch Logs
-   - Solution: Increased timeout and optimized code
-   - Learning: Lambda has hard limits, design accordingly
-
-3. **CloudWatch Alarm Not Firing**
-   - Problem: No alerts received for known issue
-   - Investigation: Checked alarm configuration and SNS
-   - Solution: Fixed alarm metric query and SNS subscription
-   - Learning: Test your monitoring before you need it
-
-**Code:** [`troubleshooting/`](troubleshooting/)
+**Documentation:** [`troubleshooting/`](troubleshooting/)
 
 ---
 
-## 💻 Skills Demonstrated
+## 💻 Skills I'm Demonstrating
 
-### AWS Services Used
+### AWS Services I've Actually Used:
 
 **Compute & Networking:**
-- EC2 (instance management, auto-recovery, scheduling)
-- VPC (security groups, network monitoring)
-- Lambda (automation functions)
+- ✅ EC2 (instance management, auto-recovery, scheduling)
+- ✅ VPC (security groups, network monitoring)
+- ✅ Lambda (automation functions)
 
-**Storage & Databases:**
-- S3 (security auditing, access control)
-- EBS (volume monitoring)
+**Storage:**
+- ✅ S3 (security auditing, access control)
+- ✅ EBS (volume monitoring)
 
 **Security & Compliance:**
-- IAM (policy troubleshooting, least privilege)
-- GuardDuty (threat detection)
-- CloudTrail (audit logging)
+- ✅ IAM (policy troubleshooting, least privilege)
+- ✅ GuardDuty (threat detection)
+- ✅ CloudTrail (audit logging)
 
-**Monitoring & Observability:**
-- CloudWatch (logs, metrics, alarms, dashboards)
-- SNS (notifications and alerting)
-- Config (compliance rules)
+**Monitoring:**
+- ✅ CloudWatch (logs, metrics, alarms, dashboards)
+- ✅ SNS (notifications and alerting)
+- ✅ Config (compliance rules)
 
-### Technical Skills
+---
+
+### Technical Skills:
 
 **Programming & Scripting:**
-- Python (Boto3 SDK, automation scripts)
-- Bash (Linux administration)
-- HCL (Terraform infrastructure)
+- **Python** - Boto3 SDK, automation scripts
+- **Bash** - Linux administration, shell scripting
+- **Git** - Version control for all code
 
 **CloudOps Practices:**
 - Infrastructure monitoring
@@ -409,12 +320,12 @@ Problem → Investigation → Root Cause → Solution → Prevention
 - Incident response
 - Documentation
 
-**Tools & Technologies:**
+**Tools:**
 - Boto3 (AWS SDK for Python)
-- Terraform (Infrastructure as Code)
-- Git (version control)
-- CloudWatch Logs Insights
 - AWS CLI
+- CloudWatch Logs Insights
+- Linux command line
+- VS Code
 
 ---
 
@@ -427,54 +338,42 @@ Problem → Investigation → Root Cause → Solution → Prevention
 - AWS Account (Free Tier works)
 - Python 3.8+
 - AWS CLI configured
-- Boto3 installed
-
-# Optional
-- Terraform (for infrastructure deployment)
+- pip install boto3
 ```
 
-### Setup Instructions
+### Setup
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/charles-bucher/CloudOpsLab.git
 cd CloudOpsLab
 
-# 2. Install Python dependencies
+# 2. Install dependencies
 pip install -r requirements.txt
 
 # 3. Configure AWS credentials
 aws configure
 
-# 4. Deploy lab infrastructure (optional)
-cd terraform/
-terraform init
-terraform apply
-
-# 5. Run automation scripts
-cd ../automation/
+# 4. Run a script
+cd scripts/
 python ec2_manager.py --list
 
-# 6. Run security audit
+# 5. Run security audit
 cd ../monitoring/
 python security_audit.py
-
-# 7. Clean up when done
-cd ../terraform/
-terraform destroy
 ```
 
 ### Example: Testing EC2 Auto-Recovery
 
 ```bash
 # Deploy EC2 with auto-recovery
-cd automation/
+cd scripts/
 python ec2_auto_recovery.py --deploy
 
 # Simulate instance failure
 python ec2_auto_recovery.py --simulate-failure
 
-# Monitor recovery process
+# Monitor recovery
 python ec2_auto_recovery.py --check-status
 
 # Verify recovery completed
@@ -483,19 +382,18 @@ python ec2_auto_recovery.py --validate
 
 ---
 
-## � Project Structure
+## 📁 Project Structure
 
 ```
 CloudOpsLab/
-├── automation/              # Automation scripts & workflows
-│   ├── screenshots/        # Visual proof of automation
+├── scripts/                 # Main automation scripts
 │   ├── cloudwatch_alarms.py
 │   ├── ec2_auto_recovery.py
 │   ├── ec2_manager.py
 │   ├── ec2_scheduler.py
 │   └── s3_public_check.py
-├── monitoring/              # Security & monitoring scripts
-│   ├── screenshots/        # Monitoring dashboards
+├── monitoring/              # Security & monitoring
+│   ├── screenshots/         # Proof of monitoring work
 │   ├── security_audit.py
 │   ├── health_check.py
 │   ├── guardduty_handler.py
@@ -504,70 +402,24 @@ CloudOpsLab/
 │   ├── ec2_recovery.py
 │   ├── s3_remediation.py
 │   └── lambda_functions/
+├── automation/              # Additional automation
+│   └── screenshots/         # Proof of automation work
 ├── troubleshooting/         # Problem scenarios & solutions
 │   ├── iam_debugging.md
 │   ├── lambda_timeout.md
 │   └── cloudwatch_alarms.md
-├── terraform/               # Infrastructure as Code
-│   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-├── scripts/                 # Utility scripts
-│   └── setup_environment.sh
 ├── docs/                    # Documentation
-│   ├── screenshots/
+│   ├── screenshots/         # Portfolio screenshots
 │   ├── architecture.md
-│   └── runbooks/
+│   └── runbooks/            # Operational runbooks
 └── README.md               # You are here
 ```
 
 ---
 
-## 📊 Automation Quality Metrics
+## 📊 My Learning Journey
 
-### Code Quality & Testing
-
-![Autofixer Results](docs/screenshots/automation/repo_autofixer_results.png)
-*Automated code quality checks and fixes applied*
-
-![Safe Autofixer Results](docs/screenshots/automation/repo_safe_autofixer_results.png)
-*Safe automated improvements ensuring code reliability*
-
-**Quality Practices:**
-- ✅ Automated code linting (pylint, flake8)
-- ✅ Error handling in all scripts
-- ✅ Logging for troubleshooting
-- ✅ Input validation
-- ✅ Dry-run mode for testing
-
----
-
-## 🛠� Technologies Used
-
-<div align="center">
-
-### Cloud Platform
-![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-
-### Programming Languages
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-
-### Infrastructure & Automation
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)
-![Boto3](https://img.shields.io/badge/Boto3-AWS_SDK-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
-### Monitoring & Security
-![CloudWatch](https://img.shields.io/badge/CloudWatch-FF4F8B?style=for-the-badge&logo=amazon-cloudwatch&logoColor=white)
-![GuardDuty](https://img.shields.io/badge/GuardDuty-DD344C?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
-</div>
-
----
-
-## 📚 What I've Learned
-
-### Key Takeaways
+### What I've Learned:
 
 **Automation:**
 - Python + Boto3 makes AWS operations programmable
@@ -589,105 +441,223 @@ CloudOpsLab/
 
 **Operations:**
 - Documentation saves time during incidents
-- Runbooks should be tested regularly
 - Cost optimization requires continuous monitoring
 - Security is a daily practice, not a checkbox
+- CloudTrail is your best friend for troubleshooting
 
 ---
 
-## 🎯 Next Steps
+## 🎯 What I'm Working On Next
 
-**Planned Improvements:**
+**Planned improvements:**
+- [ ] ECS container monitoring
+- [ ] RDS backup automation
+- [ ] Cost optimization reports
+- [ ] Multi-region health checks
+- [ ] Systems Manager integration
+- [ ] Config compliance rules
 
-- [ ] Add ECS container monitoring
-- [ ] Implement RDS backup automation
-- [ ] Create cost optimization reports
-- [ ] Build multi-region health checks
-- [ ] Add Systems Manager integration
-- [ ] Implement Config compliance rules
-
-**Skills to Practice:**
-- [ ] AWS Lambda with EventBridge
+**Skills I'm practicing:**
+- [ ] Lambda with EventBridge
 - [ ] Step Functions for workflows
-- [ ] CloudFormation for IaC
-- [ ] Container orchestration (ECS/EKS)
+- [ ] Advanced CloudWatch Logs Insights
+- [ ] Container orchestration basics
 
 ---
 
-## � Contributing
+## 💰 Cost Transparency
 
-This is a personal learning project, but I'm open to suggestions and improvements!
+**Monthly AWS Costs for This Lab:**
+```
+EC2 (2 × t3.micro):      ~$15.00
+S3 Storage:              ~$1.00
+Data Transfer:           ~$2.00
+CloudWatch Logs:         ~$2.00
+─────────────────────────────────
+Total:                   ~$20.00/month
+```
 
-**Ways to Help:**
-- � Report issues or bugs
+**Funded by:** My part-time delivery job while learning cloud
+
+**Worth it?** Absolutely. I'm building proof, not just theory.
+
+---
+
+## 📸 Screenshots & Evidence
+
+All screenshots in this repo are from **my actual AWS account**. No stock images, no tutorial screenshots.
+
+**Screenshot locations:**
+- `docs/screenshots/` - General portfolio screenshots
+- `automation/screenshots/` - Automation project screenshots
+- `monitoring/screenshots/` - Monitoring & security screenshots
+
+---
+
+## 🙋‍♂️ About Me
+
+**Charles Bucher**  
+Self-Taught Cloud Engineer | Career Transition from Delivery Driving
+
+**My Story:**
+
+I'm 40 years old, working as a delivery driver, teaching myself cloud engineering to provide better for my family. Instead of just watching tutorials, I'm actually **building things in AWS** and documenting everything.
+
+**Why trust my work?**
+- ✅ Every screenshot is from MY AWS account
+- ✅ I spend my own money running these labs ($20/month)
+- ✅ I work on these projects after 10-hour delivery shifts
+- ✅ I document everything like production systems
+
+**What I'm NOT:**
+- ❌ A senior engineer pretending to be entry-level
+- ❌ Someone who just copied tutorials
+- ❌ A paper cert chaser with no hands-on
+
+**What I AM:**
+- ✅ Self-taught and proud of it
+- ✅ Honest about being entry-level
+- ✅ Willing to start small and prove myself
+- ✅ Ready to outwork anyone for this opportunity
+
+---
+
+## 🎯 Current Status
+
+**Studying for:** AWS SysOps Administrator Associate  
+**Looking for:** Entry-level Cloud Support / SysOps / DevOps roles  
+**Location:** Florida (remote preferred)  
+**Salary expectations:** $50k+ (realistic for entry-level)
+
+### What I'm Open To:
+- Full-time W2 positions
+- Contract work through staffing agencies
+- Remote opportunities
+- Hybrid roles in Tampa Bay area
+
+---
+
+## 📞 Let's Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/charles-bucher-cloud)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:quietopscb@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://charles-bucher.github.io/)
+
+---
+
+## 📝 Quick Facts
+
+```yaml
+name: Charles Bucher
+role: Self-Taught Cloud Engineer
+location: Florida
+status: Open to Work
+focus: AWS CloudOps
+
+skills:
+  cloud: [AWS, CloudWatch, EC2, S3, Lambda, IAM]
+  scripting: [Python, Bash]
+  tools: [Boto3, AWS CLI, Git, Linux]
+  practices: [Automation, Monitoring, Security, Troubleshooting]
+
+currently_learning:
+  - AWS SysOps Administrator Associate
+  - Advanced CloudWatch patterns
+  - Infrastructure automation
+
+ideal_role:
+  - AWS Cloud Support Associate
+  - Junior SysOps Administrator  
+  - Cloud Operations Engineer
+  - Entry-level DevOps Engineer
+
+motivation: "Family deserves better than paycheck-to-paycheck living"
+```
+
+---
+
+## 🏆 Why This Lab Matters
+
+### What This Proves:
+
+**For Hiring Managers:**
+- ✅ I can actually use AWS (not just theory)
+- ✅ I troubleshoot systematically
+- ✅ I document professionally
+- ✅ I'm self-motivated (teaching myself after work)
+
+**For Me:**
+- ✅ Built confidence in AWS operations
+- ✅ Created reusable automation scripts
+- ✅ Developed systematic debugging approach
+- ✅ Have portfolio proof of hands-on work
+
+**For Other Learners:**
+- ✅ Error-driven learning works
+- ✅ You don't need expensive courses
+- ✅ Free tier + determination = real skills
+- ✅ Document everything!
+
+---
+
+## 🤝 Contributing
+
+This is a personal learning project, but I'm open to suggestions!
+
+**Ways to help:**
+- 🐛 Report issues or bugs
 - 💡 Suggest new scenarios
-- � Improve documentation
-- � Star the repo if you find it useful
+- 📝 Improve documentation
+- ⭐ Star the repo if you find it useful
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ---
 
-## 📞 Contact & Connect
-
-**Charles Bucher** - Self-Taught Cloud Engineer
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/charles-bucher-cloud)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/charles-bucher)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:charles.bucher.cloud@gmail.com)
-
-**Status:** Open to entry-level AWS CloudOps/SysOps roles
-
----
-
-## � Acknowledgments
+## 🙏 Acknowledgments
 
 **Learning Resources:**
 - AWS Documentation
 - AWS Well-Architected Framework
 - Boto3 Documentation
-- Real-world operational experience from building this lab
+- Real-world experience from this lab
 
 **Inspiration:**
+- My family depending on this career change
 - The need to prove skills through actual work
-- Family depending on career transition success
 - Love for solving technical problems
+- This community of self-taught engineers
+
+---
+
+## ⭐ If This Helped You...
+
+If this repo helped you learn CloudOps or gave you ideas for your own portfolio, please give it a star! It helps others find it too.
 
 ---
 
 <div align="center">
 
-**� If this repo helped you learn CloudOps, please give it a star!**
+**Built with ☕, Python, and a lot of trial and error**
 
-*Built with ☕, Python, and a lot of trial and error*
+### Charles Bucher | Self-Taught Cloud Engineer
+
+*"I can't fake experience, so I'm building proof instead"*
+
+![Profile Views](https://komarev.com/ghpvc/?username=charles-bucher&color=0e75b6&style=flat-square&label=Repo+Views)
+
+</div>
+
+---
+
+<div align="center">
 
 **CloudOpsLab** | Learning operational excellence one automation at a time
 
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=charles-bucher.CloudOpsLab)
+[⬆ Back to Top](#cloudopslab-)
 
 </div>
-## Description
-Write a short description of the project here.
-
-## Scenario Walkthrough
-Step-by-step lab walkthrough here.
-
-# Project Title
-
-## Usage
-Instructions here...
-
-![Diagram](diagram.png)
-
-## Skills Demonstrated
-List skills here...
-
-## Infrastructure as Code
-Terraform/CloudFormation usage...
-
-## Monitoring / Operational Signals
-Include logs/metrics...
